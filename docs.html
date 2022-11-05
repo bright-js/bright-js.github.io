@@ -9,7 +9,11 @@
 </head>
 
 <script>
-Array.from(document.querySelectorAll('code')).forEach(function (i) { i.classList.add('language-javascript') });
+Array.from(document.querySelectorAll('code'))
+.forEach(function (i) {
+    i.classList.add('language-javascript');
+    i.classList.add('hljs');
+});
 hljs.highlightAll();
 </script>
 
@@ -148,6 +152,24 @@ $(window).on('load', () => {
     .then(() => {
         $.log('Loaded!');
     });</code></pre>
+        <h2>Change some css</h2>
+        <pre><code>$('h1')
+    // change it's style by providing a property and a value
+    .css('color', 'red)
+    
+    // you can also do it with an object
+    .css({
+        color: 'red',
+        fontWeight: 'bolder'
+    });
+    
+// access to a property
+$.log($('h1').css('color'));// => 'red'
+
+// or
+$.log($('h1').css('color'));// => 'rgb(255, 0, 0)'
+
+    </code></pre>
 	</div>
 </body>
 
