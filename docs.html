@@ -3,12 +3,151 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/monokai-sublime.min.css"/>
 	<title>Docs</title>
 </head>
 
+<script>
+Array.from(document.querySelectorAll('code')).forEach(function (i) { i.classList.add('language-javascript') });
+hljs.highlightAll();
+</script>
+
+<style>
+    body, html {
+		margin:  0;
+		height:  100vh;
+		width:  100vw;
+		left:  0;
+		top:  0;
+		position: absolute;
+		background-image: url("./static/background.svg");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		font-family: sans-serif;
+		background-color: #eee;
+		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+		overflow-x: hidden;
+		font-size: 18px;
+	}
+	header {
+	    text-align: center;
+	    height: 50vh;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	}
+	header h1 {
+	    margin: 15px;
+		display: block;
+		text-align: center;
+		font-size: 46px !important;
+	}
+	header h1 b {
+		font-weight: bold;
+		color: #353535;
+	}
+	header h1 label {
+		font-weight: 100;
+	}
+	header h2 {
+		color:  #303030;
+	}
+	* {
+	    box-sizing: border-box;
+	}
+	.main {
+	    background: white;
+	    min-height: 50vh;
+	    width: 100vw;
+	    padding: 10px;
+	}
+	.main > h2 {
+	    margin-top: 40px;
+	}
+	.cdn {
+	    padding: 0;
+	    white-space: pre-wrap;
+	    word-wrap: break-all;
+	    overflow-wrap: break-word;
+	    overflow: hidden;
+	    width: 100%;
+	    border: solid 1px #303030;
+	    padding: 14px;
+	    border-radius: 5px;
+	    font-size: 16px;
+	    font-family: sans-serif;
+	    line-height: 1.4rem;
+	}
+	pre:not(.cdn) {
+	    white-space: pre-wrap;
+	    padding: 0;
+	    overflow: hidden;
+	    width: calc(100% - 20px);
+	}
+	code {
+	    border-radius: 8px;
+	    width: 100%;
+	    white-space: pre-wrap;
+	    word-wrap: break-all;
+	    overflow-wrap: break-word;
+	    overflow: hidden;
+	}
+</style>
+
+<header>
+    <h1>
+		<b>BRIGHT</b><label>JS</label>
+	</h1>
+	<h2>Documentation</h2>
+</header>
+
 <body>
-	<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-		<b>https://cdn.jsdelivr.net/gh/bright-js/bright-js.github.io/dist/bright.min.js</b>
+	<div class="main">
+	    <h2>Download</h2>
+	    <pre class="cdn">https://raw.githubusercontent.com/bright-js/bright-js.github.io/main/dist/bright.min.js</pre>
+	    
+	    <h2>Select an HTMLElement</h2>
+	    <pre><code>const elem = $('h1');</code></pre>
+	    
+	    <h2>Access it's content and modify it.</h2>
+	    <pre><code>// Change it's HTML
+$('h1').html('Hello world!');
+
+// access to it's HTML
+const html = $('h1').html();// => 'Hello world!'
+
+// change it's content
+$('h1').text('Hello world! >:)');
+
+// access to it's content
+const text = $('h1').text();// => 'Hello world! >:)'
+</code></pre>
+        <b>Note: </b>if you select many different tags, it will returns an array
+        <pre><code>var text = $('h1').text();
+// => ['Hello world!', ...]</code></pre>
+
+        <h2>Use it with an object</h2>
+        <pre><code>const tag = document.getElementById('myId');
+const elem = $(tag);</code></pre>
+        
+        <h2>Add an event listener</h2>
+        <pre><code>$('h1').on('click', (event) => {
+    $.log('Clicked!');
+});
+$(window).on('load', () => {
+    $.log('Loaded!');
+});
+</code></pre>
+        <h2>Load external html in a tag</h2>
+        <pre><code>$('myDiv')
+    .load('/path/to/file.html')
+    // you can execute a function when the content is loaded
+    .then(() => {
+        $.log('Loaded!');
+    });</code></pre>
 	</div>
 </body>
 
