@@ -1,1 +1,105 @@
-<h1>test</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery test</title>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bright-js/bright-js.github.io/dist/bright.min.js"></script>
+</head>
+
+<style type="text/css">
+	body, html {
+		margin:  0;
+		height:  100vh;
+		width:  100vw;
+		left:  0;
+		top:  0;
+		position: absolute;
+		background-image: url("./static/background.svg");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		font-family: sans-serif;
+	}
+	h1 {
+		display: block;
+		text-align: center;
+		font-size: 46px !important;
+	}
+	h1 b {
+		font-weight: bold;
+		color: #353535;
+	}
+	h1 label {
+		font-weight: 100;
+	}
+	h2 {
+		color:  #303030;
+	}
+	.main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		font-size: 18px;
+		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	}
+	.main > div {
+		height: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+	button {
+		font-size: 16px;
+		padding: 18px;
+		cursor: pointer;
+		border: solid 2px white;
+		background:  white;
+		border-radius: 2px;
+		transition: 200ms ease-out;
+		font-weight: 600;
+	}
+	button:hover {
+		border:  solid 2px #363636;
+	}
+</style>
+
+<body>
+	<div class="main">
+		<div>
+			<h1>
+				<b>BRIGHT</b><label>JS</label>
+			</h1>
+			<h2>A lightweight library for the web, an alternative to jQuery</h2>
+			<div id="warning">
+				This library is currently in development.
+			</div>
+		</div>
+
+		<div>
+			<button id="click">View the docs</button>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+// we execute a function when the window is loaded
+$(window).on('load', () => {
+
+	// we log something!
+	$.log('The webpage is loaded!');
+
+	// we add some more style
+	$('#warning').css({
+		fontStyle: 'italic',
+		fontSize: '16px'
+	});
+});
+</script>
+
+</html>
