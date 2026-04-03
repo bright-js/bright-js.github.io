@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "init": "easydocs init",
+    "dev": "easydocs dev",
+    "build": "easydocs build"
+  },
+  "dependencies": {
+    "@nathanti/easydocs": "^1.0.5"
+  }
+}

@@ -1,107 +1,82 @@
 <!DOCTYPE html>
+<!--
+Powered by EasyDocs
+https://github.com/ntillier/EasyDocs
+-->
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Bright.js</title>
-
-	<script type="text/javascript" src="/dist/bright.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/mithril/mithril.min.js"></script>
+  <link href="/index.min.css" rel="stylesheet">
+  <script defer src="/index.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-light.css" rel="stylesheet" crossorigin="anonymous">
 </head>
-
-<style type="text/css">
-	body, html {
-		margin:  0;
-		height:  100vh;
-		width:  100vw;
-		left:  0;
-		top:  0;
-		position: absolute;
-		background: transparent;
-		font-family: sans-serif;
-	}
-	h1 {
-		display: block;
-		text-align: center;
-		font-size: 46px !important;
-	}
-	h1 b {
-		font-weight: bold;
-		color: #353535;
-	}
-	h1 label {
-		font-weight: 100;
-	}
-	h2 {
-		color:  #303030;
-	}
-	.main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		font-size: 18px;
-		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	}
-	.main > div {
-		height: 50%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-	}
-	button {
-		font-size: 16px;
-		padding: 18px;
-		cursor: pointer;
-		border: solid 2px white;
-		background:  white;
-		border-radius: 2px;
-		transition: 200ms ease-out;
-		font-weight: 600;
-	}
-	button:hover {
-		border:  solid 2px #363636;
-	}
-</style>
-
 <body>
-	<img src="/static/background2.svg" style="position:absolute;left:0;top:0;width:100vw;height:100vh;object-fit: cover;">
-	<div class="main">
-		<div>
-			<h1>
-				<b>BRIGHT</b><label>JS</label>
-			</h1>
-			<h2>A lightweight library for the web, an alternative to jQuery</h2>
-			<div id="warning">
-				This library is currently in development.
-			</div>
-		</div>
+    <main>
+      <header>
+        <div class="menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="menu-button">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"></path>
+          </svg>
+          <img src="undefined">
+          <h1>BrightJs</h1>
+        </div>
+        <div class="links"><a href="https://github.com/bright-js" target="_blank">GitHub</a></div>
+      </header>
+      <div class="body">
+          <nav>
+             <a href="/" >Introduction</a>
+          </nav>
+          <div id="content" class="content">
+             <div id="article" class="article"><h1 id="brightjs">BrightJs</h1><p>A tiny library for small webpages.</p>
+<div class="admonition admonition-info">
+    <p class="admonition-title">Note</p>
+    <p>You should consider not using it, since I will not bring any further update to it.</p>
 
-		<div>
-			<button id="click">View the docs</button>
-		</div>
-	</div>
-</body>
+    </div><h2 id="use-it">Use it</h2><p>The minified version is available <a target="_blank" href="https://raw.githubusercontent.com/bright-js/bright-js.github.io/main/public/bright.min.js" title="null">here</a>.</p>
+<h1 id="docs">Docs</h1><h2 id="select-an-htmlelement">Select an HTMLElement</h2><pre><code class="hljs"><span class="hljs-keyword">const</span> elem = $(<span class="hljs-string">&#x27;h1&#x27;</span>);</code></pre><h2 id="access-it-39-s-content-and-modify-it">Access it&#39;s content and modify it.</h2><pre><code class="hljs"><span class="hljs-comment">// Change it&#x27;s HTML</span>
+$(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">html</span>(<span class="hljs-string">&#x27;Hello world!&#x27;</span>);
 
-<script type="text/javascript">
-// we execute a function when the window is loaded
-$(window).on('load', () => {
+<span class="hljs-comment">// access to it&#x27;s HTML</span>
+<span class="hljs-keyword">const</span> html = $(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">html</span>();<span class="hljs-comment">// =&gt; &#x27;Hello world!&#x27;</span>
 
-	// we log something!
-	$.log('The webpage is loaded!');
+<span class="hljs-comment">// change it&#x27;s content</span>
+$(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">text</span>(<span class="hljs-string">&#x27;Hello world! &gt;:)&#x27;</span>);
 
-	// we add some more style
-	$('#warning').css({
-		fontStyle: 'italic',
-		fontSize: '16px'
-	});
-
-	$("#click").on('click', () => {
-		window.open('/docs', '_self');
-	});
+<span class="hljs-comment">// access to it&#x27;s content</span>
+<span class="hljs-keyword">const</span> text = $(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">text</span>();<span class="hljs-comment">// =&gt; &#x27;Hello world! &gt;:)&#x27;</span></code></pre><p><strong>Note:</strong> if you select many different tags, it will returns an array </p>
+<pre><code class="hljs"><span class="hljs-keyword">var</span> text = $(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">text</span>();
+<span class="hljs-comment">// =&gt; [&#x27;Hello world!&#x27;, ...]</span></code></pre><h2 id="use-it-with-an-object">Use it with an object</h2><pre><code class="hljs"><span class="hljs-keyword">const</span> tag = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;myId&#x27;</span>);
+<span class="hljs-keyword">const</span> elem = $(tag);</code></pre><h2 id="add-an-event-listener">Add an event listener</h2><pre><code class="hljs">$(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+    $.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Clicked!&#x27;</span>);
 });
-</script>
+$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;load&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    $.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Loaded!&#x27;</span>);
+});</code></pre><h2 id="load-external-html-in-a-tag">Load external html in a tag</h2><pre><code class="hljs">$(<span class="hljs-string">&#x27;myDiv&#x27;</span>)
+    .<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;/path/to/file.html&#x27;</span>)
+    <span class="hljs-comment">// you can execute a function when the content is loaded</span>
+    .<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> {
+        $.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Loaded!&#x27;</span>);
+    });</code></pre><h2 id="change-some-css">Change some css</h2><pre><code class="hljs">$(<span class="hljs-string">&#x27;h1&#x27;</span>)
+    <span class="hljs-comment">// change it&#x27;s style by providing a property and a value</span>
+    .<span class="hljs-title function_">css</span>(<span class="hljs-string">&#x27;color&#x27;</span>, <span class="hljs-string">&#x27;red&#x27;</span>)
+    
+    <span class="hljs-comment">// you can also do it with an object</span>
+    .<span class="hljs-title function_">css</span>({
+        <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;red&#x27;</span>,
+        <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">&#x27;bolder&#x27;</span>
+    });
+    
+<span class="hljs-comment">// access to a property</span>
+$.<span class="hljs-title function_">log</span>($(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&#x27;color&#x27;</span>));<span class="hljs-comment">// =&gt; &#x27;red&#x27;</span>
 
+<span class="hljs-comment">// or</span>
+$.<span class="hljs-title function_">log</span>($(<span class="hljs-string">&#x27;h1&#x27;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&#x27;color&#x27;</span>));<span class="hljs-comment">// =&gt; &#x27;rgb(255, 0, 0)&#x27;</span></code></pre></div>
+          </div>
+          <aside></aside>
+       </div>
+    </main></body>
+<script>window.__CONFIG__ = {"title":"BrightJs","favicon":"","header":{"title":"BrightJs","links":[{"label":"GitHub","link":"https://github.com/bright-js"}]},"sitemap":[{"type":0,"link":"/","label":"Introduction","index":"no-index","priority":1,"modifiedAt":"2026-04-03T19:53:51.273Z"}]}</script>
 </html>

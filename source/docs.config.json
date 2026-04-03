@@ -1,0 +1,14 @@
+
+{
+  "title": "BrightJs",
+  "favicon": "",
+  "header": {
+    "title": "BrightJs",
+    "links": [
+      {
+        "label": "GitHub",
+        "link": "https://github.com/bright-js"
+      }
+    ]
+  }
+}
